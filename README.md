@@ -8,7 +8,6 @@
 - Maven
 - JUnit 5
 - Selenide
-- REST Assured
 
 ## Что проверяется
 
