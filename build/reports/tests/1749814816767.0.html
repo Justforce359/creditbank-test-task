@@ -1,0 +1,258 @@
+<html lang="ru"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска - КредитБанк</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .client-card {
+            transition: transform 0.2s;
+        }
+        .client-card:hover {
+            transform: translateY(-2px);
+        }
+        .status-active {
+            color: #28a745;
+        }
+        .status-overdue {
+            color: #dc3545;
+        }
+        .status-closed {
+            color: #6c757d;
+        }
+        .error-container {
+            background-color: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-university"></i> КредитБанк
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/search">Поиск клиентов</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        
+<div class="search-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>
+            <i class="fas fa-list text-primary"></i>
+            Результаты поиска
+        </h2>
+        <a href="/search" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left"></i> Новый поиск
+        </a>
+    </div>
+
+    
+    <div class="alert alert-info" role="alert">
+        <strong>Поисковый запрос:</strong> "Иван"
+        <br>
+        <small class="text-muted">Сортировка: не выбрана | Время выполнения: 0.40с</small>
+    </div>
+    
+
+    
+    <div class="mb-3">
+        <p class="text-muted">
+            Найдено клиентов: <strong>2</strong>
+            
+                (показано 7 из 2)
+            
+        </p>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-lg-6">
+            <div class="card client-card shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="card-title mb-0">
+                            Иванов Иван Иванович
+                        </h5>
+                        <span class="badge 
+                            bg-success
+                            
+                            ">
+                            Активный
+                        </span>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <small class="text-muted">Паспорт:</small><br>
+                            <strong>1234567890</strong>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Телефон:</small><br>
+                            <strong>+7(999)123-45-67</strong>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <small class="text-muted">Email:</small><br>
+                            <a href="mailto:ivanov@example.com">ivanov@example.com</a>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Сумма кредита:</small><br>
+                            <strong class="text-success">500000₽</strong>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/client/1" class="btn btn-sm btn-primary">
+                            Подробнее
+                        </a>
+                        <button class="btn btn-sm btn-warning" onclick="editClient(1)">
+                            Редактировать
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteClient(1)">
+                            Удалить
+                        </button>
+                    </div>
+
+                    <div style="display: none;" class="debug-info">
+                        Client ID: 1
+                        Internal Status: unknown
+                        Last Modified: never
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card client-card shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="card-title mb-0">
+                            Волкова Татьяна Ивановна
+                        </h5>
+                        <span class="badge 
+                            bg-success
+                            
+                            ">
+                            Активный
+                        </span>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <small class="text-muted">Паспорт:</small><br>
+                            <strong>8901234567</strong>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Телефон:</small><br>
+                            <strong>+7(999)890-12-34</strong>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <small class="text-muted">Email:</small><br>
+                            <a href="mailto:volkova@example.com">volkova@example.com</a>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Сумма кредита:</small><br>
+                            <strong class="text-success">620000₽</strong>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/client/8" class="btn btn-sm btn-primary">
+                            Подробнее
+                        </a>
+                        <button class="btn btn-sm btn-warning" onclick="editClient(8)">
+                            Редактировать
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteClient(8)">
+                            Удалить
+                        </button>
+                    </div>
+
+                    <div style="display: none;" class="debug-info">
+                        Client ID: 8
+                        Internal Status: unknown
+                        Last Modified: never
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+    
+
+    <div class="mt-5 p-3 bg-light border rounded">
+        <h6>Отладочная информация:</h6>
+        <small class="text-muted">
+            Query: "Иван"<br>
+            Sort: <br>
+            Total records in database: 8<br>
+            Search method: Linear scan (inefficient)<br>
+            Memory usage: High<br>
+            Template: /app/templates/results.html
+        </small>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="mt-5 py-4 bg-light text-center">
+        <div class="container">
+            <p class="text-muted mb-0">
+                © 2024 КредитБанк. Тестовое приложение для QA.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+<script>
+    // ОШИБКА JS: Функции без реализации
+    function editClient(id) {
+        alert('Функция редактирования недоступна. Client ID: ' + id);
+        // Потенциальная XSS уязвимость через id
+    }
+    
+    function deleteClient(id) {
+        if (confirm('Вы действительно хотите удалить клиента? Это действие нельзя отменить!')) {
+            alert('Удаление клиентов недоступно в демо версии.');
+            console.log('DELETE FROM clients WHERE id = ' + id);
+        }
+    }
+    
+    setTimeout(function() {
+        if (window.location.search.includes('debug=true')) {
+            var debugInfo = document.querySelector('.debug-info');
+            if (debugInfo) {
+                debugInfo.style.display = 'block';
+            }
+        }
+    }, 500);
+    
+    console.log('Search results loaded');
+</script>
+
+
+ </body></html>
